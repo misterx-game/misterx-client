@@ -17,6 +17,15 @@ angular.module('main', [
       templateUrl: 'main/templates/menu.html',
       controller: 'MenuCtrl as menu'
     })
+      .state('main.map', {
+        url: '/map',
+        views: {
+          'pageContent': {
+            templateUrl: 'main/templates/map.html',
+            controller: 'MapCtrl as ctrl'
+          }
+        }
+      })
       .state('main.list', {
         url: '/list',
         views: {
