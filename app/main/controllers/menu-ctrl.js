@@ -1,13 +1,9 @@
 'use strict';
 angular.module('main')
-.controller('MenuCtrl', ['$scope', '$log', function ($scope, $log) {
-
-  $scope.center = {
-    lat: 0,
-    lon: 0,
-    autodiscover: true
-  };
+.controller('MenuCtrl', function ($log) {
 
   $log.log('Hello from your Controller: MenuCtrl in module main:. This is your controller:', this);
 
-}]);
+  // @todo load user info for display at bottom of sidemenu...
+
+});
