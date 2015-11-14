@@ -1,12 +1,10 @@
 'use strict';
 angular.module('main')
-.service('LocationReporter', function ($log, $resource, $interval, geolocation) {
+.service('LocationReporter', function ($log, $interval, geolocation, Location) {
 
   $log.log('Hello from your Service: LocationReporter in module main');
 
   var lr = this;
-
-  var Location = $resource('/v1/location', {}, {});
 
   this.position = {
     lat: 0,

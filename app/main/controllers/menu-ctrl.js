@@ -2,19 +2,18 @@
 angular.module('main')
 .controller('MenuCtrl', function ($log, $scope, $interval, $localStorage, LocationReporter) {
 
-  $log.log('Hello from your Controller: MenuCtrl in module main:. This is your controller:', this);
-
+  // persist the decision to send data in localstorage
   $scope.$storage = $localStorage.$default({
     updateLocation: true
   });
 
+  // view state data
   $scope.locationUpdate = {
-    checked: true,
     pending: false
   };
-
   $scope.selfPosition = LocationReporter.position;
 
+  // method for sending data to backend
   var report = function () {
     if (!$scope.$storage.updateLocation) {
       return;
@@ -29,6 +28,7 @@ angular.module('main')
     });
   };
 
+  // regularly send position data to backend
   if (
     $scope.$storage.updateLocation &&
     LocationReporter.position.lat === 0 &&
