@@ -27,7 +27,7 @@ angular.module('main')
       lr.position.lat = loc.latitude;
       lr.position.lon = loc.longitude;
 
-      $log.log('Synchronizing coordinates', data.coords, loc);
+      $log.log('Synchronizing coordinates', data.coords);
       return loc.$save();
     });
   };

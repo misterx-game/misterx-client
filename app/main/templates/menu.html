@@ -31,10 +31,12 @@
     <!-- menu content -->
     <ion-content>
       <ion-list>
-        <ion-item menu-close ui-sref="main.map">
+        <ion-item menu-close ui-sref="main.map" icon="map">
+          <i class="icon ion-android-map"></i>
           Map
         </ion-item>
         <ion-item menu-close ui-sref="main.list">
+          <i class="icon ion-flag"></i>
           List
         </ion-item>
         <div class="item item-divider">
@@ -47,6 +49,12 @@
           Debug
         </ion-item>
       </ion-list>
+
+      <div class="card">
+        <div class="item item-text-wrap text-center lead">
+            {{ selfPosition.lat | number: 0 }}° φ {{ selfPosition.lon | number: 0 }}° λ
+        </div>
+      </div>
     </ion-content>
 
   </ion-side-menu>
