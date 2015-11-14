@@ -5,7 +5,7 @@ angular.module('main')
   $log.log('Hello from your Controller: MapCtrl in module main:. This is your controller:', this);
 
   $ionicSideMenuDelegate.canDragContent(false);
-  $scope.$on('$locationChangeSuccess', function( event ) {
+  $scope.$on('$locationChangeSuccess', function () {
     $ionicSideMenuDelegate.canDragContent($state.current.url !== '/map');
   });
 

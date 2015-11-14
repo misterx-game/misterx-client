@@ -15,16 +15,16 @@ angular.module('main')
 
   $scope.selfPosition = LocationReporter.position;
 
-  var report = function() {
+  var report = function () {
     if (!$scope.$storage.updateLocation) {
       return;
     }
     $scope.locationUpdate.pending = true;
-    LocationReporter.report().then(function() {
-      $log.log("Location synced successfully.");
+    LocationReporter.report().then(function () {
+      $log.log('Location synced successfully.');
       $scope.locationUpdate.pending = false;
-    }).catch(function() {
-      $log.error("Failed to sync location.");
+    }).catch(function () {
+      $log.error('Failed to sync location.');
       $scope.locationUpdate.pending = false;
     });
   };

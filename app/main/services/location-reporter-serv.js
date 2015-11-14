@@ -13,8 +13,8 @@ angular.module('main')
     lon: 0
   };
 
-  this.report = function() {
-    return geolocation.getLocation().then(function(data){
+  this.report = function () {
+    return geolocation.getLocation().then(function (data) {
       var loc = new Location({
         accuracy: data.coords.accuracy,
         altitude: data.coords.altitude,
