@@ -5,7 +5,8 @@ angular.module('main')
   $log.log('Hello from your Controller: MenuCtrl in module main:. This is your controller:', this);
 
   $scope.locationUpdate = {
-    checked: true
+    checked: true,
+    pending: false
   };
 
   $scope.selfPosition = LocationReporter.position;
@@ -14,10 +15,13 @@ angular.module('main')
     if (!$scope.locationUpdate.checked) {
       return;
     }
+    $scope.locationUpdate.pending = true;
     LocationReporter.report().then(function() {
       $log.log("Location synced successfully.");
+      $scope.locationUpdate.pending = false;
     }).catch(function() {
       $log.error("Failed to sync location.");
+      $scope.locationUpdate.pending = false;
     });
   };
 

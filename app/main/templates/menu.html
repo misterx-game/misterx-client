@@ -41,7 +41,7 @@
           Settings
         </div>
         <ion-toggle ng-model="locationUpdate.checked" toggle-class="toggle-calm">
-          Location Update
+          Location Update<ion-spinner ng-show="locationUpdate.pending" icon="ripple" style="height: 16px"></ion-spinner>
           </ion-toggle>
         <ion-item menu-close ui-sref="main.debug">
           Debug
