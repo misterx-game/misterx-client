@@ -25,7 +25,14 @@ angular.module('main')
     });
   };
 
-  $interval(report, 5000);
+  if (
+    $scope.locationUpdate.checked &&
+    LocationReporter.position.lat === 0 &&
+    LocationReporter.position.lon === 0) {
+
+    report();
+  }
+  $interval(report, 15000);
 
   // @todo load user info for display at bottom of sidemenu...
 
