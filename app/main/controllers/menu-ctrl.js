@@ -1,8 +1,12 @@
 'use strict';
 angular.module('main')
-.controller('MenuCtrl', function ($log, $scope, $interval, LocationReporter) {
+.controller('MenuCtrl', function ($log, $scope, $interval, $localStorage, LocationReporter) {
 
   $log.log('Hello from your Controller: MenuCtrl in module main:. This is your controller:', this);
+
+  $scope.$storage = $localStorage.$default({
+    updateLocation: true
+  });
 
   $scope.locationUpdate = {
     checked: true,
@@ -12,7 +16,7 @@ angular.module('main')
   $scope.selfPosition = LocationReporter.position;
 
   var report = function() {
-    if (!$scope.locationUpdate.checked) {
+    if (!$scope.$storage.updateLocation) {
       return;
     }
     $scope.locationUpdate.pending = true;
@@ -26,7 +30,7 @@ angular.module('main')
   };
 
   if (
-    $scope.locationUpdate.checked &&
+    $scope.$storage.updateLocation &&
     LocationReporter.position.lat === 0 &&
     LocationReporter.position.lon === 0) {
 
