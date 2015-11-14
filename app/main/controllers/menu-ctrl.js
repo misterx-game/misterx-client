@@ -8,6 +8,8 @@ angular.module('main')
     checked: true
   };
 
+  $scope.selfPosition = LocationReporter.position;
+
   var report = function() {
     if (!$scope.locationUpdate.checked) {
       return;
