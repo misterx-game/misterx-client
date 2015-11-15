@@ -6,5 +6,6 @@ angular.module('MisterX', [
   'ngStorage',
   'nemLogging',
   'ui-leaflet',
-  'geolocation'
+  'geolocation',
+  'emguo.poller'
 ]);

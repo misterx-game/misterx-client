@@ -1,7 +1,7 @@
 'use strict';
 angular.module('main')
-.service('Location', function ($log, $resource) {
+.service('Location', function ($log, $resource, Config) {
 
-  return $resource('/v1/location', {}, {});
+  return $resource(Config.ENV.SERVER_URL + '/location', {}, {});
 
 });
