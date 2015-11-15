@@ -8,6 +8,16 @@ angular.module('main')
     markers: {}
   });
 
-  this.positions = $storage.mrxPositions;
+  this.load = function () {
+    Location.get(
+      function (data) {
+        $log.log('Got locations successfully.');
+        angular.extend($storage.markers, data);
+      },
+      function () {
+        $log.error('Failed to get locations.');
+      }
+    );
+  };
 
 });

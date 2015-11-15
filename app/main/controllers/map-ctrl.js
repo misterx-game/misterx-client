@@ -25,4 +25,6 @@ angular.module('main')
     }
   });
 
+  MisterX.load();
+
 });
