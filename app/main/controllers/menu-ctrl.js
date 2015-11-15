@@ -4,14 +4,15 @@ angular.module('main')
 
   // persist the decision to send data in localstorage
   $scope.$storage = $localStorage.$default({
-    updateLocation: true
+    updateLocation: true,
+    markers: {}
   });
 
   // view state data
   $scope.locationUpdate = {
     pending: false
   };
-  $scope.selfPosition = LocationReporter.position;
+  $scope.$storage.markers.selfPosition = LocationReporter.position;
 
   // method for sending data to backend
   var report = function () {
@@ -25,6 +26,11 @@ angular.module('main')
     }).catch(function () {
       $log.error('Failed to sync location.');
       $scope.locationUpdate.pending = false;
+    }).finally(function () {
+      $scope.$storage.markers.selfPosition = {
+        lat: LocationReporter.position.lat,
+        lng: LocationReporter.position.lng
+      };
     });
   };
 

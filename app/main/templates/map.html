@@ -2,9 +2,7 @@
   <!-- do you want padding -->
   <ion-content id="map" scroll="false">
 
-    <openlayers ol-center="center">
-      <ol-marker ol-marker-properties="selfPosition"></ol-marker>
-    </openlayers>
+    <leaflet defaults="defaults" lf-center="center" markers="$storage.markers" controls="controls"></leaflet>
 
   </ion-content>
 </ion-view>

@@ -5,7 +5,7 @@ angular.module('main')
   $log.log('Hello from your Service: MisterX in module main');
 
   var $storage = $localStorage.$default({
-    mrxPositions: []
+    markers: {}
   });
 
   this.positions = $storage.mrxPositions;

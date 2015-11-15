@@ -1,3 +1,5 @@
+body {
+}
 #map {
     height: 100%;
     margin: 0;
@@ -6,9 +8,11 @@
     height: 100%;
     margin: 0;
 }
-.angular-openlayers-map {
+.angular-leaflet-map {
+    width: auto;
     height: 100%;
-    width: 100%;
+}
+.leaflet-map-pane {
 }
 ion-side-menu ion-spinner.spinner svg {
   width: 50%;

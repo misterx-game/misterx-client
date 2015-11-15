@@ -8,7 +8,7 @@ angular.module('main')
 
   this.position = {
     lat: 0,
-    lon: 0
+    lng: 0
   };
 
   this.report = function () {
@@ -23,7 +23,7 @@ angular.module('main')
         speed: data.coords.speed
       });
       lr.position.lat = loc.latitude;
-      lr.position.lon = loc.longitude;
+      lr.position.lng = loc.longitude;
 
       $log.log('Synchronizing coordinates', data.coords);
       return loc.$save();

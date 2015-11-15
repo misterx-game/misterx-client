@@ -8,15 +8,21 @@ angular.module('main')
     $ionicSideMenuDelegate.canDragContent($state.current.url !== '/map');
   });
 
-  // let center of map be set automagically
-  $scope.center = {
-    lat: 0,
-    lon: 0,
-    autodiscover: true
-  };
-
-  // put positions for marker onto scope
-  $scope.selfPosition = LocationReporter.position;
-  $scope.$storage = $localStorage;
+  angular.extend($scope, {
+    defaults: {
+      zoom: 8,
+      zoomControlPosition: 'bottomleft',
+      trackResize: false
+    },
+    // let center of map be set automagically
+    center: {
+      autoDiscover: true
+    },
+    controls: {
+      scale: {
+        position: 'bottomright'
+      }
+    }
+  });
 
 });

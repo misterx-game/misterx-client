@@ -52,7 +52,7 @@
 
       <div class="card">
         <div class="item item-text-wrap text-center lead">
-            {{ selfPosition.lat | number: 0 }}° φ {{ selfPosition.lon | number: 0 }}° λ
+            {{ $storage.markers.selfPosition.lat | number: 0 }}° φ {{ $storage.markers.selfPosition.lng | number: 0 }}° λ
         </div>
       </div>
     </ion-content>

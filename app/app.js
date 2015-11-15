@@ -4,6 +4,7 @@ angular.module('MisterX', [
   'main', // starting with the main module
   'ngResource',
   'ngStorage',
-  'openlayers-directive',
+  'nemLogging',
+  'ui-leaflet',
   'geolocation'
 ]);
