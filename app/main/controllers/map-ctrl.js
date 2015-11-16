@@ -11,7 +11,7 @@ angular.module('main')
   angular.extend($scope, {
     defaults: {
       zoom: 8,
-      zoomControlPosition: 'bottomleft',
+      zoomControlPosition: 'topleft',
       trackResize: false
     },
     // let center of map be set automagically
@@ -20,7 +20,16 @@ angular.module('main')
     },
     controls: {
       scale: {
-        position: 'bottomright'
+        imperial: false
+      },
+      minimap: {
+        type: 'minimap',
+        layer: {
+          name: 'OpenStreetMap',
+          url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+          type: 'xyz'
+        },
+        toggleDisplay: true
       }
     }
   });

@@ -6,7 +6,8 @@ angular.module('main')
   // https://github.com/mwaylabs/generator-m-ionic#gulp-environment
   ENV: {
     /*inject-env*/
-    'SERVER_URL': 'http://localhost:3001'
+    'SERVER_URL': 'http://localhost:3001',
+    'GITHUB_CLIENT_ID': 'f368e86456d2bf10b466'
     /*endinject*/
   },
 

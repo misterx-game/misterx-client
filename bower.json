@@ -18,7 +18,10 @@
     "angular-simple-logger": "~0.1.5",
     "Leaflet.awesome-markers": "~2.0.2",
     "leaflet.markercluster": "~0.4.0",
-    "angular-poller": "~0.4.1"
+    "angular-poller": "~0.4.1",
+    "angular-jwt": "~0.0.9",
+    "satellizer": "~0.13.0",
+    "leaflet-minimap": "~3.0.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.5"

@@ -17,6 +17,27 @@ angular.module('main', [
       templateUrl: 'main/templates/menu.html',
       controller: 'MenuCtrl as menu'
     })
+      .state('main.login', {
+        url: '/login',
+        resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        },
+        views: {
+          'pageContent': {
+            templateUrl: 'main/templates/login.html',
+            controller: 'LoginCtrl as ctrl'
+          }
+        }
+      })
+      .state('main.logout', {
+        url: '/logout',
+        views: {
+          'pageContent': {
+            templateUrl: 'main/templates/logout.html',
+            controller: 'LogoutCtrl as ctrl'
+          }
+        }
+      })
       .state('main.map', {
         url: '/map',
         views: {
@@ -53,4 +74,14 @@ angular.module('main', [
           }
         }
       });
+
+    function skipIfLoggedIn($q, $auth) {
+      var deferred = $q.defer();
+      if ($auth.isAuthenticated()) {
+        deferred.reject();
+      } else {
+        deferred.resolve();
+      }
+      return deferred.promise;
+    }
 });

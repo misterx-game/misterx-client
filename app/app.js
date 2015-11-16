@@ -7,5 +7,18 @@ angular.module('MisterX', [
   'nemLogging',
   'ui-leaflet',
   'geolocation',
-  'emguo.poller'
-]);
+  'emguo.poller',
+  'angular-jwt',
+  'satellizer'
+])
+.config(function Config($httpProvider, $authProvider, jwtInterceptorProvider, Config) {
+  $authProvider.github({
+    url: Config.ENV.SERVER_URL + '/auth/github',
+    clientId: Config.ENV.GITHUB_CLIENT_ID
+  });
+  jwtInterceptorProvider.tokenGetter = ['$localStorage', function($storage) {
+    return localStorage.getItem('satellizer_token');
+  }];
+
+  $httpProvider.interceptors.push('jwtInterceptor');
+});
