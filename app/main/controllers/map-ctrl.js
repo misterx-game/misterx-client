@@ -26,10 +26,34 @@ angular.module('main')
         type: 'minimap',
         layer: {
           name: 'OpenStreetMap',
-          url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+          url: 'http://a.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png',
           type: 'xyz'
         },
         toggleDisplay: true
+      }
+    },
+    layers: {
+      baselayers: {
+        switzerland: {
+          name: 'OpenStreetMap (CH)',
+          url: 'http://tile.osm.ch/switzerland/{z}/{x}/{y}.png',
+          type: 'xyz'
+        },
+        osm: {
+          name: 'OpenStreetMap',
+          url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+          type: 'xyz'
+        },
+        transport: {
+          name: 'Transport Map',
+          url: 'http://a.tile2.opencyclemap.org/transport/{z}/{x}/{y}.png',
+          type: 'xyz'
+        },
+        hikenbike: {
+          name: 'Hike&Bike',
+          url: 'http://toolserver.org/tiles/hikebike/{z}/{x}/{y}.png',
+          type: 'xyz'
+        }
       }
     }
   });

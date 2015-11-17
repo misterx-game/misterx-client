@@ -17,7 +17,15 @@ angular.module('main')
     null,
     function (data) {
       $log.log('Got locations successfully.');
-      angular.extend($storage.markers, data);
+      angular.extend(
+        $storage.markers,
+        data.filter(function (obj) {
+          return '_id' in obj;
+        }).reduce(function (arr, obj) {
+          arr[obj._id] = obj;
+          return arr;
+        }, {})
+      );
     }
   );
 
