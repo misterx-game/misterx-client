@@ -9,8 +9,6 @@
     "angular-dynamic-locale": "~0.1.27",
     "angular-translate": "~2.8.1",
     "angular-translate-loader-static-files": "~2.8.1",
-    "angular-localForage": "~1.2.3",
-    "angular-openlayers-directive": "~1.2.3",
     "angularjs-geolocation": "~0.1.1",
     "angular-resource": "~1.4.7",
     "ngstorage": "~0.3.10",
@@ -21,7 +19,9 @@
     "angular-poller": "~0.4.1",
     "angular-jwt": "~0.0.9",
     "satellizer": "~0.13.0",
-    "leaflet-minimap": "~3.0.0"
+    "leaflet-minimap": "~3.0.0",
+    "angular-leaflet-directive": "~0.10.0",
+    "ng-resource": "~0.0.2"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.5"
@@ -31,6 +31,41 @@
     "angular-animate": "~1.4.5",
     "angular-sanitize": "~1.4.5",
     "angular-ui-router": "~0.2.15"
+  },
+  "overrides": {
+    "satellizer": {
+      "main": ["satellizer.js"]
+    },
+    "angular-jwt": {
+      "main": ["dist/angular-jwt.js"]
+    },
+    "angular-simple-logger": {
+      "main": ["dist/angular-simple-logger.js"]
+    },
+    "leaflet": {
+      "main": ["dist/leaflet-src.js", "dist/leaflet.css"]
+    },
+    "Leaflet.awesome-markers": {
+      "main": ["dist/leaflet.awesome-markers.js", "dist/leaflet.awesome-markers.css"]
+    },
+    "leaflet.markercluster": {
+      "main": ["dist/leaflet.markercluster.js", "dist/MarkerCluster.css", "dist/MarkerCluster.Default.css"]
+    },
+    "leaflet-minimap": {
+      "main": ["dist/Control.MiniMap.min.js", "dist/Control.MiniMap.min.css"]
+    },
+    "angular-resource": {
+      "main": ["angular-resource.js"]
+    },
+    "ngstorage": {
+      "main": ["ngStorage.js"]
+    },
+    "ui-leaflet": {
+      "main": ["dist/ui-leaflet.js"]
+    },
+    "angular-poller": {
+      "main": ["angular-poller.js"]
+    }
   },
   "name": "MisterX",
   "private": true
