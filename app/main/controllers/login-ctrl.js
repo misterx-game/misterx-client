@@ -4,8 +4,8 @@ angular.module('main')
 
   $log.log('Hello from your Controller: LoginCtrl in module main:. This is your controller:', this);
 
-  $scope.authenticate = function(provider) {
-    $auth.authenticate(provider).then(function(response) {
+  $scope.authenticate = function (provider) {
+    $auth.authenticate(provider).then(function () {
       $ionicHistory.nextViewOptions({
         historyRoot: true
       });

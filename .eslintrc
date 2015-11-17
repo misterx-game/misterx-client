@@ -3,6 +3,10 @@
   "env": {
     "node": true
   },
+  // libs from globals space
+  "globals": {
+    "L": true
+  },
   "rules": {
     // overrides from 'recommended'
     "comma-dangle": 0,
