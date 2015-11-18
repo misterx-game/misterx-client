@@ -34,37 +34,64 @@
   },
   "overrides": {
     "satellizer": {
-      "main": ["satellizer.js"]
+      "main": [
+        "satellizer.js"
+      ]
     },
     "angular-jwt": {
-      "main": ["dist/angular-jwt.js"]
+      "main": [
+        "dist/angular-jwt.js"
+      ]
     },
     "angular-simple-logger": {
-      "main": ["dist/angular-simple-logger.js"]
+      "main": [
+        "dist/angular-simple-logger.js"
+      ]
     },
     "leaflet": {
-      "main": ["dist/leaflet-src.js", "dist/leaflet.css"]
+      "main": [
+        "dist/leaflet-src.js",
+        "dist/leaflet.css"
+      ]
     },
     "Leaflet.awesome-markers": {
-      "main": ["dist/leaflet.awesome-markers.js", "dist/leaflet.awesome-markers.css"]
+      "main": [
+        "dist/leaflet.awesome-markers.js",
+        "dist/leaflet.awesome-markers.css"
+      ]
     },
     "leaflet.markercluster": {
-      "main": ["dist/leaflet.markercluster.js", "dist/MarkerCluster.css", "dist/MarkerCluster.Default.css"]
+      "main": [
+        "dist/leaflet.markercluster.js",
+        "dist/MarkerCluster.css",
+        "dist/MarkerCluster.Default.css"
+      ]
     },
     "leaflet-minimap": {
-      "main": ["dist/Control.MiniMap.min.js", "dist/Control.MiniMap.min.css"]
+      "main": [
+        "dist/Control.MiniMap.min.js",
+        "dist/Control.MiniMap.min.css"
+      ]
     },
     "angular-resource": {
-      "main": ["angular-resource.js"]
+      "main": [
+        "angular-resource.js"
+      ]
     },
     "ngstorage": {
-      "main": ["ngStorage.js"]
+      "main": [
+        "ngStorage.js"
+      ]
     },
     "ui-leaflet": {
-      "main": ["dist/ui-leaflet.js"]
+      "main": [
+        "dist/ui-leaflet.js"
+      ]
     },
     "angular-poller": {
-      "main": ["angular-poller.js"]
+      "main": [
+        "angular-poller.js"
+      ]
     }
   },
   "name": "MisterX",
