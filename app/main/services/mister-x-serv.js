@@ -12,6 +12,21 @@ angular.module('main')
     action: 'query'
   });
 
+  var iconMap = {
+    player: {
+      type: 'div',
+      iconSize: [0, 0],
+      iconAnchor:  [14, 40],
+      html: '<i class="icon ion-person mrx-map-icon mrx-map-icon-player"></i>'
+    },
+    agent: {
+      type: 'div',
+      iconSize: [0, 0],
+      iconAnchor:  [14, 40],
+      html: '<i class="icon ion-person mrx-map-icon mrx-map-icon-agent"></i>'
+    }
+  };
+
   locationPoller.promise.then(
     null,
     null,
@@ -22,6 +37,7 @@ angular.module('main')
         data.filter(function (obj) {
           return '_id' in obj;
         }).reduce(function (arr, obj) {
+          obj.icon = iconMap[obj.group] || undefined;
           arr[obj._id] = obj;
           return arr;
         }, {})

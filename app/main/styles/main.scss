@@ -19,3 +19,12 @@ ion-side-menu ion-spinner.spinner svg {
   width: 50%;
   height: 16px;
 }
+.mrx-map-icon {
+  font-size: 300%;
+}
+.mrx-map-icon.mrx-map-icon-player {
+  color: blue;
+}
+.mrx-map-icon.mrx-map-icon-agent {
+  color: red;
+}
