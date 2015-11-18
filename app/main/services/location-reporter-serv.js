@@ -18,12 +18,12 @@ angular.module('main')
         altitude: data.coords.altitude,
         altitudeAccuracy: data.coords.altitudeAccuracy,
         heading: data.coords.heading,
-        latitude: data.coords.latitude,
-        longitude: data.coords.longitude,
+        lat: data.coords.latitude,
+        lng: data.coords.longitude,
         speed: data.coords.speed
       });
-      lr.position.lat = loc.latitude;
-      lr.position.lng = loc.longitude;
+      lr.position.lat = loc.lat;
+      lr.position.lng = loc.lng;
 
       $log.log('Synchronizing coordinates', data.coords);
       return loc.$save();
