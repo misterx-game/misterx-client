@@ -351,6 +351,17 @@ By running `gulp defaults` without a 'set' or 'clear' flag, a comprehensive list
 gulp defaults
 ```
 
+#### gulp deploy
+Deploy to anywhere using rsync.
+
+By running `gulp deploy` the build will get deployed to `/srv/www/htdocs`.
+
+You can override some parts of the deploy on the command line.
+
+```sh
+gulp deploy --destination=/path/to/webroot --hostname=example.com
+```
+
 ## Running on Windows
 The generator should work just like on unix/mac except there's one difference, when running `gulp --cordova` tasks. They need doublequotes. So write this:
 ```sh

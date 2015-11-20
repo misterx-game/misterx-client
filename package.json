@@ -47,6 +47,7 @@
     "require-dir": "^0.3.0",
     "vinyl-paths": "^2.0.0",
     "wiredep": "^2.2.2",
-    "xml2js": "^0.4.9"
+    "xml2js": "^0.4.9",
+    "gulp-rsync": "0.0.5"
   }
 }

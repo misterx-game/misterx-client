@@ -8,6 +8,7 @@ var fs = require('fs');
 // config
 gulp.paths = {
   dist: 'www',
+  deploy: '/srv/www/htdocs',
   jsFiles: ['app/**/*.js', '!app/bower_components/**/*.js'],
   jsonFiles: ['app/**/*.json', '!app/bower_components/**/*.json'],
   templates: ['app/*/templates/**/*'],
