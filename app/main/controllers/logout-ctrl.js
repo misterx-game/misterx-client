@@ -8,7 +8,7 @@ angular.module('main')
       template: 'Are you sure you want to log out?'
     });
     confirmPopup.then(function (res) {
-      if(res) {
+      if (res) {
         $log.log('Logging out user');
         localStorage.removeItem('satellizer_token');
         $ionicHistory.nextViewOptions({
