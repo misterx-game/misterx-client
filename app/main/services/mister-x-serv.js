@@ -16,13 +16,13 @@ angular.module('main')
     player: {
       type: 'div',
       iconSize: [0, 0],
-      iconAnchor:  [14, 40],
+      iconAnchor: [14, 40],
       html: '<i class="icon ion-person mrx-map-icon mrx-map-icon-player"></i>'
     },
     agent: {
       type: 'div',
       iconSize: [0, 0],
-      iconAnchor:  [14, 40],
+      iconAnchor: [14, 40],
       html: '<i class="icon ion-person mrx-map-icon mrx-map-icon-agent"></i>'
     }
   };

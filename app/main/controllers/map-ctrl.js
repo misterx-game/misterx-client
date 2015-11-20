@@ -1,6 +1,8 @@
 'use strict';
 angular.module('main')
 .controller('MapCtrl', function ($log, $scope, $state, $localStorage, $ionicSideMenuDelegate, LocationReporter, MisterX) {
+  // I need to "use" MisterX for linting not to complain
+  MisterX;
 
   // make sure that the map can be navigated without triggering the side-menu drag
   $ionicSideMenuDelegate.canDragContent(false);

@@ -7,7 +7,7 @@ angular.module('main')
       title: 'Log out',
       template: 'Are you sure you want to log out?'
     });
-    confirmPopup.then(function(res) {
+    confirmPopup.then(function (res) {
       if(res) {
         $log.log('Logging out user');
         localStorage.removeItem('satellizer_token');
