@@ -46,7 +46,7 @@
           <i class="icon ion-location"></i>
           Location Update<ion-spinner ng-show="locationUpdate.pending" icon="ripple" style="height: 16px"></ion-spinner>
         </ion-toggle>
-        <ion-item menu-close icon="log-out" ng-controller="LogoutCtrl as ctrl" ng-click="logout()">
+        <ion-item menu-close icon="log-out" ng-controller="LogoutCtrl as ctrl" ng-click="ctrl.logout()">
           <i class="icon ion-log-out"></i>
           Log out
         </ion-item>

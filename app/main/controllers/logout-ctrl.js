@@ -2,7 +2,7 @@
 angular.module('main')
 .controller('LogoutCtrl', function ($log, $scope, $state, $ionicHistory, $ionicPopup) {
 
-  $scope.logout = function () {
+  this.logout = function () {
     var confirmPopup = $ionicPopup.confirm({
       title: 'Log out',
       template: 'Are you sure you want to log out?'
