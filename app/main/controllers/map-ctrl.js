@@ -10,7 +10,8 @@ angular.module('main')
     $ionicSideMenuDelegate.canDragContent($state.current.url !== '/map');
   });
 
-  angular.extend($scope, {
+  // configure the map
+  angular.extend(this, {
     defaults: {
       zoom: 8,
       zoomControlPosition: 'topleft',

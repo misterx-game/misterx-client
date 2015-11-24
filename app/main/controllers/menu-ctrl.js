@@ -2,6 +2,8 @@
 angular.module('main')
 .controller('MenuCtrl', function ($log, $scope, $interval, $localStorage, LocationReporter) {
 
+  var vm = this;
+
   // persist the decision to send data in localstorage
   $scope.$storage = $localStorage.$default({
     updateLocation: true,
@@ -9,7 +11,7 @@ angular.module('main')
   });
 
   // view state data
-  $scope.locationUpdate = {
+  this.locationUpdate = {
     pending: false
   };
   $scope.$storage.markers.selfPosition = LocationReporter.position;
@@ -19,13 +21,13 @@ angular.module('main')
     if (!$scope.$storage.updateLocation) {
       return;
     }
-    $scope.locationUpdate.pending = true;
+    vm.locationUpdate.pending = true;
     LocationReporter.report().then(function () {
       $log.log('Location synced successfully.');
-      $scope.locationUpdate.pending = false;
+      vm.locationUpdate.pending = false;
     }).catch(function () {
       $log.error('Failed to sync location.');
-      $scope.locationUpdate.pending = false;
+      vm.locationUpdate.pending = false;
     }).finally(function () {
       $scope.$storage.markers.selfPosition = {
         lat: LocationReporter.position.lat,

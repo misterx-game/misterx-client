@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('LogoutCtrl', function ($log, $scope, $state, $ionicHistory, $ionicPopup) {
+.controller('LogoutCtrl', function ($log, $state, $ionicHistory, $ionicPopup) {
 
   this.logout = function () {
     var confirmPopup = $ionicPopup.confirm({
