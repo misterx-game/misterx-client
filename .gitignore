@@ -18,6 +18,9 @@
 /plugins/
 /res/*/current/
 
+# build artefacts
+/coverage/
+
 # build folder
 /www/**
 
