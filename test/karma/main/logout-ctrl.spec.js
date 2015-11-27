@@ -8,7 +8,7 @@ describe('module: main, controller: LogoutCtrl', function() {
   beforeEach(module('ngHtml2Js'));
 
   // instantiate controller
-  var LogoutCtrl, $q, $log, $rootScope, $ionicPopup;
+  var LogoutCtrl, $q, $log, $state, $rootScope, $ionicPopup, $ionicHistory;
   beforeEach(function() {
     module(function($provide) {
       $provide.service('$ionicPopup', function() {
@@ -21,11 +21,13 @@ describe('module: main, controller: LogoutCtrl', function() {
     });
   });
 
-  beforeEach(inject(function($controller, _$q_, _$log_, _$rootScope_, _$ionicPopup_) {
+  beforeEach(inject(function($controller, _$q_, _$log_, _$state_, _$rootScope_, _$ionicPopup_, _$ionicHistory_) {
     $q = _$q_;
     $log = _$log_;
+    $state = _$state_;
     $rootScope = _$rootScope_;
     $ionicPopup = _$ionicPopup_;
+    $ionicHistory = _$ionicHistory_;
     LogoutCtrl = $controller('LogoutCtrl');
   }));
 
@@ -40,8 +42,31 @@ describe('module: main, controller: LogoutCtrl', function() {
     expect($log.log).toHaveBeenCalledWith('Logged out user.');
   });
 
-  it('should remove satelizer_token from localStorage');
-  it('should reset the history');
-  it('should redirect the user to the start page');
+  it('should remove satelizer_token from localStorage', function() {
+    spyOn(localStorage, 'removeItem');
+
+    LogoutCtrl.logout();
+    $rootScope.$apply();
+
+    expect(localStorage.removeItem).toHaveBeenCalledWith('satellizer_token');
+  });
+
+  it('should reset the history', function() {
+    spyOn($ionicHistory, 'nextViewOptions').and.callThrough();
+
+    LogoutCtrl.logout();
+    $rootScope.$apply();
+
+    expect($ionicHistory.nextViewOptions).toHaveBeenCalledWith({historyRoot: true});
+  });
+
+  it('should redirect the user to the start page', function() {
+    spyOn($state, 'go');
+
+    LogoutCtrl.logout();
+    $rootScope.$apply();
+
+    expect($state.go).toHaveBeenCalledWith('start');
+  });
 
 });
