@@ -115,4 +115,8 @@ describe('module: main, controller: LocationUpdateCtrl', function() {
     expect($log.error).toHaveBeenCalledWith('Failed to sync location.');
   });
 
+  it('should expose location reporters position', function() {
+    expect(LocationUpdateCtrl.position).toEqual(mockLocationReporter.position);
+  });
+
 });

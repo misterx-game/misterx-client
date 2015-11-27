@@ -21,6 +21,7 @@ angular.module('main')
     updateLocation: true,
   });
   this.pending = false;
+  this.position = LocationReporter.position;
 
   this.toggleUpdate = function(state) {
     if (state) {

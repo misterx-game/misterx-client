@@ -56,8 +56,8 @@
       </ion-list>
 
       <div class="card">
-        <div class="item item-text-wrap text-center lead">
-            {{ $storage.markers.selfPosition.lat | number: 0 }}° φ {{ $storage.markers.selfPosition.lng | number: 0 }}° λ
+        <div class="item item-text-wrap text-center lead" ng-controller="LocationUpdateCtrl as ctrl">
+            {{ ctrl.position.lat | number: 0 }}° φ {{ ctrl.position.lng | number: 0 }}° λ
         </div>
       </div>
     </ion-content>
