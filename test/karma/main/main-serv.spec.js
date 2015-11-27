@@ -1,6 +1,6 @@
 'use strict';
 
-describe('module: main, service: Main', function () {
+describe('module: main, service: Main', function() {
 
   // load the service's module
   beforeEach(module('main'));
@@ -10,16 +10,16 @@ describe('module: main, service: Main', function () {
   // instantiate service
   var Main;
   var $timeout;
-  beforeEach(inject(function (_Main_, _$timeout_) {
+  beforeEach(inject(function(_Main_, _$timeout_) {
     Main = _Main_;
     $timeout = _$timeout_;
   }));
 
-  describe('.changeBriefly()', function () {
-    beforeEach(function () {
+  describe('.changeBriefly()', function() {
+    beforeEach(function() {
       Main.changeBriefly();
     });
-    it('should briefly change', function () {
+    it('should briefly change', function() {
       expect(Main.someData.binding).toEqual('Yeah this was changed');
       $timeout.flush();
       expect(Main.someData.binding).toEqual('Yes! Got that databinding working');

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('module: main, controller: StartCtrl', function () {
+describe('module: main, controller: StartCtrl', function() {
 
   // load the controller's module
   beforeEach(module('main'));
@@ -20,7 +20,7 @@ describe('module: main, controller: StartCtrl', function () {
     });
     module('main');
   });
-  beforeEach(inject(function ($controller, $state, $ionicHistory) {
+  beforeEach(inject(function($controller, $state, $ionicHistory) {
     mockState = $state;
     mockIonicHistory = $ionicHistory;
     StartCtrl = $controller('StartCtrl');

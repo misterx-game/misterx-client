@@ -5,10 +5,10 @@ angular.module('main', [
   'ui.router',
   // TODO: load other modules selected during generation
 ])
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
 
   // ROUTING with ui.router
-  
+
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
@@ -72,7 +72,7 @@ angular.module('main', [
         }
       });
 
-  function skipIfLoggedIn ($q, $auth) {
+  function skipIfLoggedIn($q, $auth) {
     var deferred = $q.defer();
     if ($auth.isAuthenticated()) {
       deferred.reject();

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('module: main, controller: MapCtrl', function () {
+describe('module: main, controller: MapCtrl', function() {
 
   // load the controller's module
   beforeEach(module('main'));
@@ -9,7 +9,7 @@ describe('module: main, controller: MapCtrl', function () {
 
   // instantiate controller
   var MapCtrl;
-  beforeEach(inject(function ($controller) {
+  beforeEach(inject(function($controller) {
     MapCtrl = $controller('MapCtrl');
   }));
 

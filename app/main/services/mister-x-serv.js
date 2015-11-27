@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.service('MisterX', function ($log, $localStorage, poller, Location) {
+.service('MisterX', function($log, $localStorage, poller, Location) {
 
   $log.log('Hello from your Service: MisterX in module main');
 
@@ -30,13 +30,13 @@ angular.module('main')
   locationPoller.promise.then(
     null,
     null,
-    function (data) {
+    function(data) {
       $log.log('Got locations successfully.');
       angular.extend(
         $storage.markers,
-        data.filter(function (obj) {
+        data.filter(function(obj) {
           return '_id' in obj;
-        }).reduce(function (arr, obj) {
+        }).reduce(function(arr, obj) {
           obj.icon = iconMap[obj.group] || undefined;
           arr[obj._id] = obj;
           return arr;

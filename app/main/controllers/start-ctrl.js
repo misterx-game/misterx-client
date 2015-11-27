@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('StartCtrl', function ($state, $ionicHistory) {
+.controller('StartCtrl', function($state, $ionicHistory) {
 
   this.login = function() {
     $ionicHistory.nextViewOptions({

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('MenuCtrl', function ($log, $scope, $interval, $localStorage) {
+.controller('MenuCtrl', function($log, $scope, $interval, $localStorage) {
 
   var vm = this;
 

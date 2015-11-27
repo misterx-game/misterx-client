@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.service('LocationReporter', function ($log, $interval, geolocation, Location) {
+.service('LocationReporter', function($log, $interval, geolocation, Location) {
 
   var vm = this;
 
@@ -9,9 +9,9 @@ angular.module('main')
     lng: 0
   };
 
-  this.report = function () {
+  this.report = function() {
     $log.log('Polling device for coordinates.');
-    return geolocation.getLocation().then(function (data) {
+    return geolocation.getLocation().then(function(data) {
       var loc = new Location({
         accuracy: data.coords.accuracy,
         altitude: data.coords.altitude,

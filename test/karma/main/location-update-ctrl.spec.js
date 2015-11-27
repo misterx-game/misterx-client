@@ -1,6 +1,6 @@
 'use strict';
 
-describe('module: main, controller: LocationUpdateCtrl', function () {
+describe('module: main, controller: LocationUpdateCtrl', function() {
 
   // load the controller's module
   beforeEach(module('main'));

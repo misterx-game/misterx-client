@@ -1,17 +1,17 @@
 'use strict';
 angular.module('main')
-.controller('LocationUpdateCtrl', function ($log, $localStorage, $interval, LocationReporter) {
+.controller('LocationUpdateCtrl', function($log, $localStorage, $interval, LocationReporter) {
 
   var vm = this;
 
   var createTimer = function() {
     return $interval(function() {
       vm.pending = true;
-      LocationReporter.report().then(function () {
+      LocationReporter.report().then(function() {
         $log.log('Location synced successfully.');
-      }).catch(function () {
+      }).catch(function() {
         $log.error('Failed to sync location.');
-      }).finally(function () {
+      }).finally(function() {
         vm.pending = false;
       });
     }, 15000);

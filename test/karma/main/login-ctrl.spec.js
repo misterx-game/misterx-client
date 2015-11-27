@@ -1,6 +1,6 @@
 'use strict';
 
-describe('module: main, controller: LoginCtrl', function () {
+describe('module: main, controller: LoginCtrl', function() {
 
   // load the controller's module
   beforeEach(module('main'));
@@ -9,7 +9,7 @@ describe('module: main, controller: LoginCtrl', function () {
 
   // instantiate controller
   var LoginCtrl;
-  beforeEach(inject(function ($controller) {
+  beforeEach(inject(function($controller) {
     LoginCtrl = $controller('LoginCtrl');
   }));
 

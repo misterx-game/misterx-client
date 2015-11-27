@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('DebugCtrl', function ($log, Main, Config) {
+.controller('DebugCtrl', function($log, Main, Config) {
 
   $log.log('Hello from your Controller: DebugCtrl in module main:. This is your controller:', this);
 
@@ -14,7 +14,7 @@ angular.module('main')
     input: '', // by user
     strength: ''
   };
-  this.grade = function () {
+  this.grade = function() {
     var size = this.password.input.length;
     if (size > 8) {
       this.password.strength = 'strong';

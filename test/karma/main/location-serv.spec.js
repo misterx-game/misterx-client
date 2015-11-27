@@ -1,6 +1,6 @@
 'use strict';
 
-describe('module: main, service: Location', function () {
+describe('module: main, service: Location', function() {
 
   // load the service's module
   beforeEach(module('main'));
@@ -9,7 +9,7 @@ describe('module: main, service: Location', function () {
 
   // instantiate service
   var Location;
-  beforeEach(inject(function (_Location_) {
+  beforeEach(inject(function(_Location_) {
     Location = _Location_;
   }));
 
