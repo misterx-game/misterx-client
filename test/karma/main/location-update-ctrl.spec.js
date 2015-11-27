@@ -8,19 +8,24 @@ describe('module: main, controller: LocationUpdateCtrl', function() {
   beforeEach(module('ngHtml2Js'));
 
   // instantiate controller
-  var LocationUpdateCtrl, mockInterval, mockLocalStorage, mockLocationReporter;
+  var LocationUpdateCtrl, $q, $log, mockInterval, mockLocalStorage, mockLocationReporter;
+
   beforeEach(function() {
     module(function($provide) {
       $provide.service('$localStorage', function() {
         this.$default = jasmine.createSpy('$localStorage.$default').and.returnValue({updateLocation: true});
       });
       $provide.service('LocationReporter', function() {
+        this.report = function() {};
       });
     });
   });
-  beforeEach(inject(function($controller, $interval, $localStorage, LocationReporter) {
-    spyOn($interval, 'cancel').and.callThrough()
 
+  beforeEach(inject(function($controller, $interval, $localStorage, _$q_, _$log_, LocationReporter) {
+    spyOn($interval, 'cancel').and.callThrough();
+
+    $q = _$q_;
+    $log = _$log_;
     mockInterval = $interval;
     mockLocalStorage = $localStorage;
     mockLocationReporter = LocationReporter;
@@ -46,6 +51,68 @@ describe('module: main, controller: LocationUpdateCtrl', function() {
     expect(!!LocationUpdateCtrl.timer).toEqual(true);
   });
 
-  it('should show a spinner when data is being sent');
+  it('should call report when enough time has passed', function() {
+    spyOn(mockLocationReporter, 'report').and.callFake(function() {
+      var deferred = $q.defer();
+      deferred.resolve();
+      return deferred.promise;
+    });
+
+    mockInterval.flush(15000);
+
+    expect(mockLocationReporter.report).toHaveBeenCalled();
+  });
+
+  it('should report pending as true when data is being sent', function() {
+    spyOn(mockLocationReporter, 'report').and.callFake(function() {
+      var deferred = $q.defer();
+      setTimeout(function() {
+        deferred.resolve();
+      }, 500);
+      return deferred.promise;
+    });
+
+    mockInterval.flush(15000);
+
+    expect(LocationUpdateCtrl.pending).toBe(true);
+  });
+
+  it('should report pending as false when everything is synced', function() {
+    spyOn(mockLocationReporter, 'report').and.callFake(function() {
+      var deferred = $q.defer();
+      deferred.resolve();
+      return deferred.promise;
+    });
+
+    mockInterval.flush(15001);
+
+    expect(LocationUpdateCtrl.pending).toBe(false);
+  });
+
+  it('should log success', function() {
+    spyOn(mockLocationReporter, 'report').and.callFake(function() {
+      var deferred = $q.defer();
+      deferred.resolve();
+      return deferred.promise;
+    });
+    spyOn($log, 'log');
+
+    mockInterval.flush(15000);
+
+    expect($log.log).toHaveBeenCalledWith('Location synced successfully.');
+  });
+
+  it('should log failure', function() {
+    spyOn(mockLocationReporter, 'report').and.callFake(function() {
+      var deferred = $q.defer();
+      deferred.reject();
+      return deferred.promise;
+    });
+    spyOn($log, 'error');
+
+    mockInterval.flush(15000);
+
+    expect($log.error).toHaveBeenCalledWith('Failed to sync location.');
+  });
 
 });
