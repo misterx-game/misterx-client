@@ -9,7 +9,7 @@ describe('module: main, controller: StartCtrl', function () {
 
   // instantiate controller and mock
   var StartCtrl, mockState, mockIonicHistory;
-  beforeEach(function(){
+  beforeEach(function() {
     module(function($provide) {
       $provide.service('$state', function() {
         this.go = jasmine.createSpy('go');

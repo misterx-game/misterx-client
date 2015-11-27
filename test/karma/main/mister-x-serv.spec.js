@@ -13,8 +13,6 @@ describe('module: main, service: MisterX', function () {
     MisterX = _MisterX_;
   }));
 
-  it('should do something', function () {
-    expect(!!MisterX).toBe(true);
-  });
+  it('should do something');
 
 });

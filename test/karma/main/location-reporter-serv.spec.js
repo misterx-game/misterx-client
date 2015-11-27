@@ -13,8 +13,6 @@ describe('module: main, service: LocationReporter', function () {
     LocationReporter = _LocationReporter_;
   }));
 
-  it('should do something', function () {
-    expect(!!LocationReporter).toBe(true);
-  });
+  it('should do something');
 
 });

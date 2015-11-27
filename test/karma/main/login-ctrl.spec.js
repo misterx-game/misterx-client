@@ -13,8 +13,6 @@ describe('module: main, controller: LoginCtrl', function () {
     LoginCtrl = $controller('LoginCtrl');
   }));
 
-  it('should do something', function () {
-    expect(!!LoginCtrl).toBe(true);
-  });
+  it('should do something');
 
 });

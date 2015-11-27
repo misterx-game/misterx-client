@@ -13,8 +13,6 @@ describe('module: main, service: Location', function () {
     Location = _Location_;
   }));
 
-  it('should do something', function () {
-    expect(!!Location).toBe(true);
-  });
+  it('should do something');
 
 });

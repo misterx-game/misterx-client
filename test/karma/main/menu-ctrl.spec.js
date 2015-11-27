@@ -13,8 +13,6 @@ describe('module: main, controller: MenuCtrl', function () {
     MenuCtrl = $controller('MenuCtrl');
   }));
 
-  it('should do something', function () {
-    expect(!!MenuCtrl).toBe(true);
-  });
+  it('should do something');
 
 });

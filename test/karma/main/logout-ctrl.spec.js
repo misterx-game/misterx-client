@@ -13,8 +13,6 @@ describe('module: main, controller: LogoutCtrl', function () {
     LogoutCtrl = $controller('LogoutCtrl');
   }));
 
-  it('should do something', function () {
-    expect(!!LogoutCtrl).toBe(true);
-  });
+  it('should do something');
 
 });

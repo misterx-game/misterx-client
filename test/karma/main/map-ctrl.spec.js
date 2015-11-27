@@ -13,8 +13,6 @@ describe('module: main, controller: MapCtrl', function () {
     MapCtrl = $controller('MapCtrl');
   }));
 
-  it('should do something', function () {
-    expect(!!MapCtrl).toBe(true);
-  });
+  it('should do something');
 
 });
