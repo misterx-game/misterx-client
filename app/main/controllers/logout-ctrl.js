@@ -3,13 +3,12 @@ angular.module('main')
 .controller('LogoutCtrl', function($log, $state, $ionicHistory, $ionicPopup) {
 
   this.logout = function() {
-    var confirmPopup = $ionicPopup.confirm({
+    $ionicPopup.confirm({
       title: 'Log out',
       template: 'Are you sure you want to log out?'
-    });
-    confirmPopup.then(function(res) {
+    }).then(function(res) {
       if (res) {
-        $log.log('Logging out user');
+        $log.log('Logged out user.');
         localStorage.removeItem('satellizer_token');
         $ionicHistory.nextViewOptions({
           historyRoot: true
