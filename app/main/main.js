@@ -8,27 +8,33 @@ angular.module('main', [
 .config(function ($stateProvider, $urlRouterProvider) {
 
   // ROUTING with ui.router
-  $urlRouterProvider.otherwise('/main/map');
+  
+  $urlRouterProvider.otherwise('/');
+
   $stateProvider
     // this state is placed in the <ion-nav-view> in the index.html
+    // start page
+    .state('start', {
+      url: '/',
+      templateUrl: 'main/templates/start.html',
+      controller: 'StartCtrl as ctrl'
+    })
+    // login form route
+    .state('login', {
+      url: '/login',
+      templateUrl: 'main/templates/login.html',
+      controller: 'LoginCtrl as ctrl',
+      resolve: {
+        skipIfLoggedIn: skipIfLoggedIn
+      }
+    })
+    // main view with sidemenu routes
     .state('main', {
       url: '/main',
       abstract: true,
       templateUrl: 'main/templates/menu.html',
       controller: 'MenuCtrl as menu'
     })
-      .state('main.login', {
-        url: '/login',
-        resolve: {
-          skipIfLoggedIn: skipIfLoggedIn
-        },
-        views: {
-          'pageContent': {
-            templateUrl: 'main/templates/login.html',
-            controller: 'LoginCtrl as ctrl'
-          }
-        }
-      })
       .state('main.map', {
         url: '/map',
         views: {

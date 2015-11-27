@@ -14,7 +14,7 @@ angular.module('main')
         $ionicHistory.nextViewOptions({
           historyRoot: true
         });
-        $state.go('^.login');
+        $state.go('start');
       }
     });
   };
