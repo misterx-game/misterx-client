@@ -52,4 +52,11 @@ describe('module: main, controller: StartCtrl', function() {
     expect(mockState.go).toHaveBeenCalledWith('main.map');
   });
 
+  it('should do nothing if the user is not authenticated', function() {
+    spyOn(mockAuth, 'isAuthenticated').and.returnValue(false);
+    $rootScope.$broadcast('$ionicView.beforeEnter');
+
+    expect(mockState.go).not.toHaveBeenCalled();
+  });
+
 });
