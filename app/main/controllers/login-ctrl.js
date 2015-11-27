@@ -1,11 +1,10 @@
 'use strict';
 angular.module('main')
-.controller('LoginCtrl', function($log, $auth, $localStorage, $state, $ionicHistory) {
-
-  $log.log('Hello from your Controller: LoginCtrl in module main:. This is your controller:', this);
+.controller('LoginCtrl', function($log, $auth, $state, $ionicHistory) {
 
   this.authenticate = function(provider) {
     $auth.authenticate(provider).then(function() {
+      $log.log('User logged in.');
       $ionicHistory.nextViewOptions({
         historyRoot: true
       });
