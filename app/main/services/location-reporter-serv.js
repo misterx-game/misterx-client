@@ -2,9 +2,7 @@
 angular.module('main')
 .service('LocationReporter', function ($log, $interval, geolocation, Location) {
 
-  $log.log('Hello from your Service: LocationReporter in module main');
-
-  var lr = this;
+  var vm = this;
 
   this.position = {
     lat: 0,
@@ -12,6 +10,7 @@ angular.module('main')
   };
 
   this.report = function () {
+    $log.log('Polling device for coordinates.');
     return geolocation.getLocation().then(function (data) {
       var loc = new Location({
         accuracy: data.coords.accuracy,
@@ -22,8 +21,8 @@ angular.module('main')
         lng: data.coords.longitude,
         speed: data.coords.speed
       });
-      lr.position.lat = loc.lat;
-      lr.position.lng = loc.lng;
+      vm.position.lat = loc.lat;
+      vm.position.lng = loc.lng;
 
       $log.log('Synchronizing coordinates', data.coords);
       return loc.$save();
