@@ -8,9 +8,12 @@ describe('module: main, controller: StartCtrl', function() {
   beforeEach(module('ngHtml2Js'));
 
   // instantiate controller and mock
-  var StartCtrl, mockState, mockIonicHistory;
+  var StartCtrl, mockAuth, mockState, mockIonicHistory, $scope, $rootScope;
   beforeEach(function() {
     module(function($provide) {
+      $provide.service('$auth', function() {
+        this.isAuthenticated = function() {};
+      });
       $provide.service('$state', function() {
         this.go = jasmine.createSpy('go');
       });
@@ -20,10 +23,14 @@ describe('module: main, controller: StartCtrl', function() {
     });
     module('main');
   });
-  beforeEach(inject(function($controller, $state, $ionicHistory) {
+  beforeEach(inject(function($injector, $controller, $auth, $state, $ionicHistory) {
+    $rootScope = $injector.get('$rootScope');
+    $scope = $rootScope.$new();
+
+    mockAuth = $auth;
     mockState = $state;
     mockIonicHistory = $ionicHistory;
-    StartCtrl = $controller('StartCtrl');
+    StartCtrl = $controller('StartCtrl', {$scope: $scope});
   }));
 
   it('should go to login when login() is called', function() {
@@ -36,6 +43,13 @@ describe('module: main, controller: StartCtrl', function() {
     StartCtrl.login();
 
     expect(mockIonicHistory.nextViewOptions).toHaveBeenCalledWith({historyRoot: true});
+  });
+
+  it('should go to map page if the user is already authenticated', function() {
+    spyOn(mockAuth, 'isAuthenticated').and.returnValue(true);
+    $rootScope.$broadcast('$ionicView.beforeEnter');
+
+    expect(mockState.go).toHaveBeenCalledWith('main.map');
   });
 
 });

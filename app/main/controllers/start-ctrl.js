@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('StartCtrl', function($state, $ionicHistory) {
+.controller('StartCtrl', function($state, $scope, $ionicHistory, $auth) {
 
   this.login = function() {
     $ionicHistory.nextViewOptions({
@@ -9,5 +9,11 @@ angular.module('main')
 
     $state.go('login');
   };
+
+  $scope.$on('$ionicView.beforeEnter', function() {
+    if ($auth.isAuthenticated()) {
+      $state.go('main.map');
+    }
+  });
 
 });
