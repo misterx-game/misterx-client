@@ -1,8 +1,6 @@
 'use strict';
 angular.module('main')
-.service('MisterX', function($log, $localStorage, poller, Location) {
-
-  $log.log('Hello from your Service: MisterX in module main');
+.service('MisterX', function($log, poller, Location) {
 
   var vm = this;
 
