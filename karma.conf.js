@@ -80,7 +80,7 @@ module.exports = function (config) {
     // configure coverage reports
     coverageReporter: {
       type : 'html',
-      dir : 'coverage/'
+      dir : 'coverage'
     }
   });
 };
