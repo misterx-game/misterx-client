@@ -1,14 +1,15 @@
 'use strict';
 angular.module('main')
-.controller('MapCtrl', function($log, $scope, $state, $localStorage, $ionicSideMenuDelegate, LocationReporter, MisterX) {
-  // I need to "use" MisterX for linting not to complain
-  MisterX;
+.controller('MapCtrl', function($log, $scope, $state, $ionicSideMenuDelegate, MisterX) {
 
   // make sure that the map can be navigated without triggering the side-menu drag
   $ionicSideMenuDelegate.canDragContent(false);
   $scope.$on('$locationChangeSuccess', function() {
-    $ionicSideMenuDelegate.canDragContent($state.current.url !== '/map');
+    $ionicSideMenuDelegate.canDragContent(!$state.includes('main.map'));
   });
+
+  // expose misterx markers on map
+  this.markers = MisterX.markers;
 
   // configure the map
   angular.extend(this, {

@@ -4,9 +4,7 @@ angular.module('main')
 
   $log.log('Hello from your Service: MisterX in module main');
 
-  var $storage = $localStorage.$default({
-    markers: {}
-  });
+  var vm = this;
 
   var locationPoller = poller.get(Location, {
     action: 'query'
@@ -27,13 +25,15 @@ angular.module('main')
     }
   };
 
+  this.markers = {};
+
   locationPoller.promise.then(
     null,
     null,
     function(data) {
       $log.log('Got locations successfully.');
       angular.extend(
-        $storage.markers,
+        vm.markers,
         data.filter(function(obj) {
           return '_id' in obj;
         }).reduce(function(arr, obj) {
