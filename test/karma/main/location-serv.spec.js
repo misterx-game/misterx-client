@@ -13,6 +13,7 @@ describe('module: main, service: Location', function() {
     Location = _Location_;
   }));
 
-  it('should do something');
+  it('should build url from Config');
+  it('should create a $resource');
 
 });
