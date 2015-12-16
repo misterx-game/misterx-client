@@ -19,7 +19,10 @@ angular.module('main')
         heading: data.coords.heading,
         lat: data.coords.latitude,
         lng: data.coords.longitude,
-        speed: data.coords.speed
+        speed: data.coords.speed,
+        client: {
+          time: new Date()
+        }
       });
       vm.position.lat = loc.lat;
       vm.position.lng = loc.lng;
