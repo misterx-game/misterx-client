@@ -7,7 +7,8 @@ angular.module('main')
   var createTimer = function() {
     return $interval(function() {
       vm.pending = true;
-      LocationReporter.report().then(function() {
+      LocationReporter.report(vm.userLocationId).then(function(data) {
+        vm.userLocationId = data._id;
         $log.log('Location synced successfully.');
       }).catch(function() {
         $log.error('Failed to sync location.');
