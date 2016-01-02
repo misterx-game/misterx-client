@@ -8,7 +8,13 @@ angular.module('main')
     return $interval(function() {
       vm.pending = true;
       LocationReporter.report(vm.userLocationId).then(function(data) {
-        vm.userLocationId = data._id;
+        if (data.$resolved) {
+          vm.userLocationId = data._id;
+        } else {
+          data.$promise.then(function(data) {
+            vm.userLocationId = data._id;
+          });
+        }
         $log.log('Location synced successfully.');
       }).catch(function() {
         $log.error('Failed to sync location.');
