@@ -5,6 +5,7 @@ angular.module('main')
   var vm = this;
 
   this.state = $state;
+
   this.position = {
     lat: 0,
     lng: 0
