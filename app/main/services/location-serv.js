@@ -6,7 +6,9 @@ angular.module('main')
     Config.ENV.SERVER_URL + '/locations/:_id',
     {_id: '@id'},
     {
-      'update':   {method:'PUT'},
+      'update': {
+        method: 'PUT'
+      },
     }
   );
 
