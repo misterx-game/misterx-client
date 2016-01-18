@@ -12,7 +12,7 @@ angular.module('main')
 
   $scope.$on('$ionicView.beforeEnter', function() {
     if ($auth.isAuthenticated()) {
-      $state.go('main.map');
+      $state.go('main.games');
     }
   });
 
