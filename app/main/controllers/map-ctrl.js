@@ -1,12 +1,14 @@
 'use strict';
 angular.module('main')
-.controller('MapCtrl', function($log, $scope, $state, $ionicSideMenuDelegate, MisterX) {
+.controller('MapCtrl', function($log, $scope, $state, $ionicSideMenuDelegate, MisterX, Games) {
 
   // make sure that the map can be navigated without triggering the side-menu drag
   $ionicSideMenuDelegate.canDragContent(false);
   $scope.$on('$locationChangeSuccess', function() {
     $ionicSideMenuDelegate.canDragContent(!$state.includes('main.map'));
   });
+
+  this.game = Games.get({ gameId: $state.params.game });
 
   // expose misterx markers on map
   this.markers = MisterX.markers;
