@@ -5,8 +5,8 @@ angular.module('main')
    // show list of active games
    this.games = Games.query();
 
-  this.joinGame = function(gameId) {
-   $state.go('main.map', { game: gameId });
-  }
+   this.joinGame = function(gameId) {
+     $state.go('main.map', { game: gameId });
+   };
 
  });
