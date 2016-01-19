@@ -37,7 +37,7 @@ angular.module('main', [
     })
 
       .state('main.map', {
-        url: '/map',
+        url: '/map/:game',
         views: {
           'pageContent': {
             templateUrl: 'main/templates/map.html',
