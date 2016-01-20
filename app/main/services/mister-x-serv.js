@@ -1,11 +1,16 @@
 'use strict';
 angular.module('main')
-.service('MisterX', function($log, poller, Location) {
+.service('MisterX', function($log, $state, poller, Location) {
 
   var vm = this;
 
   var locationPoller = poller.get(Location, {
-    action: 'query'
+    action: 'query',
+    argumentsArray: [
+      {
+        query: {game: $state.params.game},
+      }
+    ]
   });
 
   var iconMap = {
