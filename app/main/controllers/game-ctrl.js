@@ -3,7 +3,7 @@ angular.module('main')
  .controller('GameCtrl', function($log, $state, $ionicHistory, Games) {
 
    // show list of active games
-   this.games = Games.query();
+   this.games = Games.query({query: {start: '<'+(new Date()), end: '>'+(new Date())}});
 
    this.joinGame = function(gameId) {
      $ionicHistory.nextViewOptions({
