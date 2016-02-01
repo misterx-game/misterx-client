@@ -8,7 +8,7 @@ angular.module('main')
       $ionicHistory.nextViewOptions({
         historyRoot: true
       });
-      $state.go('main.map', {referer: 'main.map'});
+      $state.go('main.games', {referer: 'main.games'});
     });
   };
 

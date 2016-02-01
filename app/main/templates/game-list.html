@@ -1,0 +1,17 @@
+<ion-view cache-view="false" view-title="Game list" ng-controller="GameCtrl as ctrl">
+  <ion-content>
+
+    <!-- content goes here -->
+    <ion-list>
+      <ion-item
+        type="text-wrap"
+        ng-repeat="game in ctrl.games"
+        ng-click="ctrl.joinGame('{{game._id}}')">
+        <h2>{{game.name}}</h2>
+        <p>{{game.start}} - {{game.end}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

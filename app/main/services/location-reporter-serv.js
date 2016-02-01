@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.service('LocationReporter', function($log, $interval, geolocation, Location) {
+.service('LocationReporter', function($log, $state, $interval, geolocation, Location) {
 
   var vm = this;
 
@@ -22,7 +22,8 @@ angular.module('main')
         speed: data.coords.speed,
         client: {
           time: new Date()
-        }
+        },
+        game: $state.params.game
       });
       vm.position.lat = loc.lat;
       vm.position.lng = loc.lng;

@@ -1,12 +1,19 @@
 'use strict';
 angular.module('main')
-.service('MisterX', function($log, poller, Location) {
+.service('MisterX', function($log, $state, poller, Location) {
 
   var vm = this;
 
-  var locationPoller = poller.get(Location, {
-    action: 'query'
-  });
+  var locationPoller = function() {
+    return poller.get(Location, {
+      action: 'query',
+      argumentsArray: [
+        {
+          query: { game: $state.params.game },
+        }
+      ]
+    });
+  };
 
   var iconMap = {
     player: {
@@ -25,22 +32,29 @@ angular.module('main')
 
   this.markers = {};
 
-  locationPoller.promise.then(
-    null,
-    null,
-    function(data) {
-      $log.log('Got locations successfully.');
-      angular.extend(
-        vm.markers,
-        data.filter(function(obj) {
-          return '_id' in obj;
-        }).reduce(function(arr, obj) {
-          obj.icon = iconMap[obj.group] || undefined;
-          arr[obj._id] = obj;
-          return arr;
-        }, {})
-      );
-    }
-  );
+  this.startPoller = function() {
+    locationPoller().promise.then(
+      null,
+      null,
+      function(data) {
+        $log.log('Got locations successfully.');
+        angular.extend(
+          vm.markers,
+          data.filter(function(obj) {
+            return '_id' in obj;
+          }).reduce(function(arr, obj) {
+            obj.icon = iconMap[obj.group] || undefined;
+            arr[obj._id] = obj;
+            return arr;
+          }, {})
+        );
+      }
+    );
+  };
+
+  this.stopPoller = function() {
+    locationPoller().remove();
+    vm.markers = {};
+  };
 
 });

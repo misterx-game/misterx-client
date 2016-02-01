@@ -35,12 +35,22 @@ angular.module('main', [
       templateUrl: 'main/templates/menu.html',
       //controller: 'MenuCtrl as menu'
     })
+
       .state('main.map', {
-        url: '/map',
+        url: '/map/:game',
         views: {
           'pageContent': {
             templateUrl: 'main/templates/map.html',
             controller: 'MapCtrl as ctrl'
+          }
+        }
+      })
+      .state('main.games', {
+        url: '/games',
+        views: {
+          'pageContent': {
+            templateUrl: 'main/templates/game-list.html',
+            controller: 'GameCtrl as ctrl'
           }
         }
       })
