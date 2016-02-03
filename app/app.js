@@ -16,6 +16,11 @@ angular.module('MisterX', [
     url: Config.ENV.SERVER_URL + '/auth/github',
     clientId: Config.ENV.GITHUB_CLIENT_ID
   });
+  $authProvider.facebook({
+    url: Config.ENV.SERVER_URL + '/auth/facebook',
+    clientId: Config.ENV.FACEBOOK_CLIENT_ID
+  });
+
   jwtInterceptorProvider.tokenGetter = ['$localStorage', function() {
     return localStorage.getItem('satellizer_token');
   }];
