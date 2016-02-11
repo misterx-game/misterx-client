@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.service('MisterX', function($log, $state, poller, Location) {
+.service('MisterX', function($log, $localStorage, poller, Location) {
 
   var vm = this;
 
@@ -9,7 +9,7 @@ angular.module('main')
       action: 'query',
       argumentsArray: [
         {
-          query: { game: $state.params.game },
+          query: { game: $localStorage.gameId },
         }
       ]
     });
