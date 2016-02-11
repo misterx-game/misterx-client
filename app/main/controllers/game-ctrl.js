@@ -1,15 +1,13 @@
 'use strict';
 angular.module('main')
- .controller('GameCtrl', function($log, $state, $ionicHistory, Games) {
+ .controller('GameCtrl', function($log, $state, $ionicHistory, $localStorage, Games) {
 
    // show list of active games
    this.games = Games.query({query: {start: '<' + (new Date()), end: '>' + (new Date())}});
 
-   this.joinGame = function(gameId) {
-     $ionicHistory.nextViewOptions({
-       historyRoot: true
-     });
-     $state.go('main.map', { game: gameId });
+   this.saveGame = function(gameId) {
+     $localStorage.gameId = gameId;
+     $state.go('main.role');
    };
 
  });

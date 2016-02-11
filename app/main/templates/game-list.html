@@ -6,7 +6,7 @@
       <ion-item
         type="text-wrap"
         ng-repeat="game in ctrl.games"
-        ng-click="ctrl.joinGame('{{game._id}}')">
+        ng-click="ctrl.saveGame('{{game._id}}')">
         <h2>{{game.name}}</h2>
         <p>{{game.start}} - {{game.end}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
