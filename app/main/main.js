@@ -36,8 +36,17 @@ angular.module('main', [
       //controller: 'MenuCtrl as menu'
     })
 
+      .state('main.role', {
+        url: '/role/',
+        views: {
+          'pageContent': {
+            templateUrl: 'main/templates/role.html',
+            controller: 'RoleCtrl as ctrl'
+          }
+        }
+      })
       .state('main.map', {
-        url: '/map/:game',
+        url: '/map/',
         views: {
           'pageContent': {
             templateUrl: 'main/templates/map.html',

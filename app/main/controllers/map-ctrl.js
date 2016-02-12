@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('MapCtrl', function($log, $scope, $state, $ionicSideMenuDelegate, MisterX, Games) {
+.controller('MapCtrl', function($log, $scope, $state, $ionicSideMenuDelegate, $localStorage, MisterX, Games) {
 
   var vm = this;
 
@@ -15,7 +15,8 @@ angular.module('main')
   });
 
   $scope.$on('$ionicView.enter', function() {
-    vm.game = Games.get({ gameId: $state.params.game });
+    vm.game = Games.get({ gameId: $localStorage.gameId});
+    vm.role = $localStorage.role;
   });
 
   $scope.$on('$ionicView.beforeLeave', function() {
