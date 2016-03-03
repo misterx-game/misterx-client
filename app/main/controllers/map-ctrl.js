@@ -75,6 +75,10 @@ angular.module('main')
           type: 'xyz'
         }
       }
+    },
+    geoJson: {
+      name: 'playfield',
+      url: 'localhost:3001/playfields/56d86f930a6c30cd155e501c'
     }
   });
 
