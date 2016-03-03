@@ -25,8 +25,8 @@ angular.module('main')
 
   // expose misterx markers on map
   this.markers = MisterX.markers;
-  this.game = Games.get({ gameId: $localStorage.gameId});
-  this.playfield = Playfields.get(this.game.playfield);
+  this.game = Games.get({ gameId: $localStorage.gameId });
+  this.playfield = Playfields.get({ playfieldId: this.game.playfield });
 
   // configure the map
   angular.extend(this,  {
@@ -79,7 +79,7 @@ angular.module('main')
     },
     geoJson: {
       playfield: {
-        data: vm.playfield.geometry,
+        data: this.playfield.geometry,
         style: {
           fillColor: 'red',
           weight: 2,
