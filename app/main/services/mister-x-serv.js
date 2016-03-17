@@ -1,8 +1,9 @@
 'use strict';
 angular.module('main')
-.service('MisterX', function($log, $localStorage, poller, Location) {
+.service('MisterX', function($log, $localStorage, poller, Location, Games, Playfield) {
 
   var vm = this;
+  vm.games = Games;
 
   var locationPoller = function() {
     return poller.get(Location, {
@@ -55,6 +56,15 @@ angular.module('main')
   this.stopPoller = function() {
     locationPoller().remove();
     vm.markers = {};
+  };
+
+  this.getPlayfield = function() {
+    vm.games.get({ gameId: $localStorage.gameId }, function(data) {
+      Playfield.get({ playfieldId: data.playfield }, function(data) {
+        vm.playfield = data.geometry;
+      });
+    });
+
   };
 
 });

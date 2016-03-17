@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('MapCtrl',  function($log,  $scope,  $state,  $ionicSideMenuDelegate,  $localStorage,  MisterX,  Games, Playfields) {
+.controller('MapCtrl',  function($log,  $scope,  $state,  $ionicSideMenuDelegate,  $localStorage,  MisterX) {
 
   var vm = this;
 
@@ -12,6 +12,7 @@ angular.module('main')
 
   $scope.$on('$ionicView.beforeEnter',  function() {
     MisterX.startPoller();
+    MisterX.getPlayfield();
   });
 
   $scope.$on('$ionicView.enter',  function() {
@@ -25,8 +26,7 @@ angular.module('main')
 
   // expose misterx markers on map
   this.markers = MisterX.markers;
-  this.game = Games.get({ gameId: $localStorage.gameId });
-  this.playfield = Playfields.get({ playfieldId: this.game.playfield });
+  this.playfield = MisterX.playfield;
 
   // configure the map
   angular.extend(this,  {
@@ -79,7 +79,7 @@ angular.module('main')
     },
     geoJson: {
       playfield: {
-        data: this.playfield.geometry,
+        data: vm.playfield,
         style: {
           fillColor: 'red',
           weight: 2,
